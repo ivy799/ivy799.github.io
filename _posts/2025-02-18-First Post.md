@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "First Post"
+title: "Introduction"
 date: 2025-02-18
 categories: blog
 ---
@@ -19,10 +19,7 @@ I am a passionate developer with a love for learning new technologies and sharin
 
 Here are some topics I plan to cover in future posts:
 
-- Introduction to Python
-- Building a simple web application with Flask
-- Tips for improving your coding skills
-- The importance of version control with Git
+- Web Scrapping
 
 Thank you for visiting my blog. I hope you find the content helpful and engaging. Feel free to leave comments and share your thoughts!
 
