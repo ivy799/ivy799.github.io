@@ -1,4 +1,9 @@
-# LINEAR REGRESSION EXPLANATION
+---
+layout: post
+title: "LINEAR REGRESSION EXPLANATION"
+date: 2025-02-24
+categories: Machine Learning
+---
 
 ## Defenisi
 Linear regresi adalah salah satu tipe algoritma machine learning supervised artinya algortima ini belajar dari data yang telah dilabel dan memetakan data dengan fungsi linear yang paling optimal yang dapat digunakan untuk memprediksi data baru. Ini menghitung hubungan antara variabel dependent dan satu atau lebih variabel independent, ini memprediksi output kontinu dari variabel input.
@@ -27,7 +32,6 @@ Sebelum masuk ke penjelasan algoritma linear regression, kita harus tau apa itu 
 y = w * x + b  
 
 Di regresi linear ini kita akan menggunakan persamaan garis lurus ini untuk memprediksi suatu data. Dalam suatu algoritma machine learning kita harus tau bahwa suatu fungsi yang dibuat selalu belajar tanpa perlu diprogramkan secara manual, nah muncul pertanyaan bagaimana cara suatu fungsi belajar tanpa perlu diprogram ulang? Dalam algoritma regresi linear, rumus/fungsi tersebut belajar melalui **Weight (bobot) dan Bias**. Nilai tersebut disimpan pada kedua variabel tersebut hingga menghasilkan fungsi linear yang optimal.
-
 Terdapat beberapa representasi rumus pada regresi linear, tetapi disini saya akan menggunakan:  
 \[
 y = a + bx
