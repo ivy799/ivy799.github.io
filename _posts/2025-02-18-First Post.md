@@ -2,7 +2,7 @@
 layout: post
 title: "Introduction"
 date: 2025-02-18
-categories: blog
+categories: Blog
 ---
 
 

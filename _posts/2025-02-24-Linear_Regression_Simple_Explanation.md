@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "LINEAR REGRESSION EXPLANATION"
+title: "Introduction to Linear Regression"
 date: 2025-02-24
-categories: Machine Learning
+categories: MachineLearning Model Tech
 ---
 
 ## Defenisi
