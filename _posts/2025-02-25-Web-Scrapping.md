@@ -135,7 +135,7 @@ df = pd.DataFrame({
 
 langkah - 7
 simpan dataframe kedalam bentuk file csv
-df.to_csv('scrap.csv', index=False)
+df.to_csv('scrap.csv', index=False) 
 
 kalian bisa melihat dokumentasi fullnya di 
 https://www.crummy.com/software/BeautifulSoup/bs4/doc/#
