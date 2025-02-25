@@ -1,48 +1,69 @@
 ---
 layout: post
-title: "Introduction To Web Scrapping"
+title: "Introduction To Web Scraping"
 date: 2025-02-25
-categories: Tech DataMining
+categories: DataMining Data
 ---
 
+## Definisi  
 
-## Defenisi
-web scrapping adalah teknik mengambil data dari sebuah situs secara otomatis menggunakan program atau script. Teknik ini memungkinkan ekstraksi informasi dari halaman web manapun dalam format yang diinginkan. Proses web scrapping dimulai dengan mengirimkan permintaan request ke server web dan server akan mengembalikan response sesuai dengan kemauan kita. tetapi dalam proses web scrapping terdapat etika yang perlu diketahui
+Web scraping adalah teknik mengambil data dari sebuah situs secara otomatis menggunakan program atau script. Teknik ini memungkinkan ekstraksi informasi dari halaman web mana pun dalam format yang diinginkan.  
 
-image_1 : _site\assets\img\favicons\PImage\Post-3\img-1.png
+Proses web scraping dimulai dengan mengirimkan permintaan (request) ke server web, dan server akan mengembalikan respons sesuai dengan permintaan kita. Namun, dalam proses web scraping terdapat etika yang perlu diketahui.  
 
-### Respecting robots.txt:  
-- Understanding its purpose and rules  
-- Avoiding website restrictions  
+**image_1:** `_site\assets\img\favicons\Cuplikan layar 2025-02-25 112324.png`
 
-### Handling rate limits:  
-- Preventing overloading servers  
-- Implementing delays and backoffs  
+### Etika dalam Web Scraping  
 
-### Data privacy and copyright:  
-- Ethical use of scraped data  
-- Avoiding legal issues 
+#### 1. Respecting `robots.txt`  
+- Memahami tujuan dan aturan `robots.txt`  
+- Menghindari batasan yang ditetapkan oleh situs web  
+
+#### 2. Menangani Rate Limits  
+- Mencegah server overload  
+- Menerapkan delay dan backoff  
+
+#### 3. Privasi Data dan Hak Cipta  
+- Penggunaan data yang etis  
+- Menghindari masalah hukum  
+
+---
 
 ## Alasan  
-Web scraping digunakan untuk mengotomatisasi pengambilan data dari situs web secara cepat dan efisien, terutama ketika data tidak tersedia melalui API. Teknik ini bermanfaat dalam berbagai bidang, seperti analisis tren pasar, pemantauan harga produk, pengumpulan berita, serta riset akademik. Dengan web scraping, pengguna dapat menghemat waktu, mengurangi kesalahan manusia, dan mendapatkan data dalam format yang lebih mudah diolah untuk keperluan bisnis, penelitian, atau pengembangan aplikasi.  
 
+Web scraping digunakan untuk mengotomatisasi pengambilan data dari situs web secara cepat dan efisien, terutama ketika data tidak tersedia melalui API. Teknik ini bermanfaat dalam berbagai bidang, seperti:  
+
+- Analisis tren pasar  
+- Pemantauan harga produk  
+- Pengumpulan berita  
+- Riset akademik  
+
+Dengan web scraping, pengguna dapat menghemat waktu, mengurangi kesalahan manusia, dan mendapatkan data dalam format yang lebih mudah diolah untuk keperluan bisnis, penelitian, atau pengembangan aplikasi.  
+
+---
 
 ## Tools  
-- A programming language (in this case, I use Python 🐍)  
-- IDE (in this case, I use Jupyter Notebook. You can also use Colab, but if you want to make things more complex, you can use Notepad or even MS Word. However, you'll need to handle the consequences yourself.)  
-- A website to scrap (I recommend [Scrape This Site](https://www.scrapethissite.com/pages/))  
-- Library to save the day 🦸🏻‍♀️ (If you use Python, then I recommend **BeautifulSoup** and maybe **Selenium WebDriver**. If you don't use Python, then you'll need to find tools specific to your chosen language.)  
 
+- **Bahasa pemrograman** (Dalam hal ini, saya menggunakan Python 🐍)  
+- **IDE** (Saya menggunakan Jupyter Notebook. Bisa juga pakai Google Colab, tetapi jika ingin lebih kompleks, bahkan Notepad atau MS Word pun bisa digunakan—tentu dengan konsekuensinya sendiri.)  
+- **Website untuk scraping** ([Scrape This Site](https://www.scrapethissite.com/pages/))  
+- **Library untuk membantu proses scraping** 🦸🏻‍♀️  
+  - Jika menggunakan Python, saya sarankan **BeautifulSoup** dan mungkin **Selenium WebDriver**  
+  - Jika tidak menggunakan Python, cari tools spesifik sesuai bahasa pemrograman pilihan Anda  
+
+---
 
 ## Instalasi Python  
-Anda bisa melihat cara instalasi Python di  
+
+Anda bisa melihat cara instalasi Python di:  
 [YouTube - Cara Install Python](https://youtu.be/U6POiWZnGFs?si=G4sMhZkWjMpCm_78)  
 
+---
+
 ## Instalasi BeautifulSoup4  
-```powershell
+
 pip install beautifulsoup4
 atau
-```powershell
 py -m pip install beautifulsoup4
 
 dokumentasi lengkapnya bisa dilihat pada
@@ -57,7 +78,7 @@ Berikut adalah langkah langkah mengambil data menggunakan web scrapping
 
 langkah - 1
 import library yang dibutuhkan
-```python
+
 from bs4 import BeautifulSoup
 import requests
 import pandas as pd
@@ -67,12 +88,10 @@ disini pandas digunakan untuk menyimpan data hasil scrapping
 langkah - 2
 ambil url dari web tujuan dan simpan ke dalam variabel
 import library yang dibutuhkan
-```python
 url = 'https://www.scrapethissite.com/pages/simple/'
 
 langkah - 3
 buat object soup untuk mengambil data
-```python
 soup = BeautifulSoup(requests.get(url).text, 'html.parser')
 
 pada parameter pertama kita memasukkan fungsi request yang akan mengembalikan response, dan parameter kedua berisi format response yang ingin dikembalikan dalam hal ini adalah html, kenapa html? karna dengan menggunakan beautifulSoup kita bisa mencari data dengan mudah menggunakan beberapa tools. format response ini bisa kita sesuaikan semaunya, tetapi dalam kasus kita karna kita menggunakan beautiful soup maka perlu format html
@@ -80,14 +99,12 @@ pada parameter pertama kita memasukkan fungsi request yang akan mengembalikan re
 
 langkah - 4
 ambil data yang diinginkan dari response 
-```python
 soup_1 = soup.find_all('div', class_='col-md-4 country')
 
 disini kita mengambil semua data div dengan class "col-md-4 country" dan menyimpannya dalam variabel, analoginya seperti mengambil sedikit soup(soup_1) dari soup(object soup) menggunakan sendok  
 
 Langkah - 5
 menyimpan data dalam array/list
-```python
 name_list = []
 capital_list = []
 population_list = []
@@ -110,7 +127,6 @@ note : proses ini berbeda pada masing masing web, jadi sesuaikan kode berdasarka
 
 langkah - 6
 petakan data dalam dataframe
-```python
 df = pd.DataFrame({
     'Name': name_list,
     'Capital': capital_list,
@@ -119,13 +135,7 @@ df = pd.DataFrame({
 
 langkah - 7
 simpan dataframe kedalam bentuk file csv
-```python
 df.to_csv('scrap.csv', index=False)
 
 kalian bisa melihat dokumentasi fullnya di 
 https://www.crummy.com/software/BeautifulSoup/bs4/doc/#
-
-
-
-
-
