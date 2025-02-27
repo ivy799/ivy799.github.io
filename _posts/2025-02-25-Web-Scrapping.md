@@ -5,7 +5,7 @@ date: 2025-02-25
 categories: DataMining Data
 ---
 
-# Definisi  
+### Definisi  
 
 Web scraping adalah teknik mengambil data dari sebuah situs secara otomatis menggunakan program atau script. Teknik ini memungkinkan ekstraksi informasi dari halaman web mana pun dalam format yang diinginkan.  
 
@@ -31,7 +31,7 @@ Proses web scraping dimulai dengan mengirimkan permintaan (request) ke server we
 
 ---
 
-## Alasan  
+### Alasan  
 
 Web scraping digunakan untuk mengotomatisasi pengambilan data dari situs web secara cepat dan efisien, terutama ketika data tidak tersedia melalui API. Teknik ini bermanfaat dalam berbagai bidang, seperti:  
 
@@ -44,7 +44,7 @@ Dengan web scraping, pengguna dapat menghemat waktu, mengurangi kesalahan manusi
 
 ---
 
-# Tools and Instalation  
+### Tools and Instalation  
 
 - **Bahasa pemrograman** (Dalam hal ini, saya menggunakan Python 🐍)  
 - **IDE** (Saya menggunakan Jupyter Notebook. Bisa juga pakai Google Colab, tetapi jika ingin lebih kompleks, bahkan Notepad atau MS Word pun bisa digunakan—tentu dengan konsekuensinya sendiri.)  
@@ -55,14 +55,14 @@ Dengan web scraping, pengguna dapat menghemat waktu, mengurangi kesalahan manusi
 
 ---
 
-## Instalasi Python  
+#### Instalasi Python  
 
 Anda bisa melihat cara instalasi Python di:  
 [YouTube - Cara Install Python](https://youtu.be/U6POiWZnGFs?si=G4sMhZkWjMpCm_78)  
 
 ---
 
-## Instalasi BeautifulSoup4  
+#### Instalasi BeautifulSoup4  
 
 ```python
 pip install beautifulsoup4  
@@ -76,14 +76,14 @@ dokumentasi lengkapnya bisa dilihat pada
 [Dokumentasi beautifulsoup4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)  
 
 
-# Practice  
+### Practice  
 Berikut adalah langkah langkah mengambil data menggunakan web scrapping
 1. Cari url website yang ingin diambil datanya
 2. Kirim Http request ke server web tersebut
 3. parse response ke data yang dibutuhkan
 4. simpan datanya
 
-langkah - 1  
+#### langkah - 1  
 import library yang dibutuhkan
 
 ```python
@@ -94,7 +94,7 @@ import pandas as pd
 
 disini pandas digunakan untuk menyimpan data hasil scrapping
 
-langkah - 2  
+#### langkah - 2  
 ambil url dari web tujuan dan simpan ke dalam variabel
 ```python
 import library yang dibutuhkan
@@ -102,7 +102,7 @@ url = 'https://www.scrapethissite.com/pages/simple/'
 ```
 
 
-langkah - 3  
+#### langkah - 3  
 buat object soup untuk mengambil data
 ```python
 soup = BeautifulSoup(requests.get(url).text,'html.parser')
@@ -110,7 +110,7 @@ soup = BeautifulSoup(requests.get(url).text,'html.parser')
 Pada parameter pertama kita memasukkan fungsi request yang akan mengembalikan response, dan parameter kedua berisi format response yang ingin dikembalikan dalam hal ini adalah html, kenapa html? karna dengan menggunakan beautifulSoup kita bisa mencari data dengan mudah menggunakan beberapa tools. format response ini bisa kita sesuaikan semaunya, tetapi dalam kasus kita karna kita menggunakan beautiful soup maka perlu format html
 
 
-langkah - 4  
+#### langkah - 4  
 ambil data yang diinginkan dari response 
 ```python
 soup_1 = soup.find_all('div', class_='col-md-4 country')
@@ -118,7 +118,7 @@ soup_1 = soup.find_all('div', class_='col-md-4 country')
 disini kita mengambil semua data div dengan class "col-md-4 country" dan menyimpannya dalam variabel, analoginya seperti mengambil sedikit soup(soup_1) dari soup(object soup) menggunakan sendok  
 
 
-Langkah - 5  
+#### Langkah - 5  
 menyimpan data dalam array/list
 ```python
 name_list = []
@@ -141,7 +141,7 @@ pada proses ini karna ini menggunakan fungsi find_all() maka dilakukan looping k
 note : proses ini berbeda pada masing masing web, jadi sesuaikan kode berdasarkan data response kalian
 
 
-langkah - 6 
+#### langkah - 6 
 
 petakan data dalam dataframe
 ```python
@@ -152,7 +152,7 @@ df = pd.DataFrame({
     'Area': area_list})
 ```
 
-langkah - 7  
+#### langkah - 7  
 simpan dataframe kedalam bentuk file csv
 ```python
 df.to_csv('scrap.csv', index=False) 
