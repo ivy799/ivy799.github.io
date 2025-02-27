@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Introduction to Linear Regression"
+title: "Main Idea Behind Linear Regression"
 date: 2025-02-24
 categories: MachineLearning Model
 ---
