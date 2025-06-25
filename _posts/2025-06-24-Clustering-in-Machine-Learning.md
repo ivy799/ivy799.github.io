@@ -155,3 +155,49 @@ Gambar dapat memiliki pikselnya yang dikelompokkan dalam berbagai cara yang dapa
 ### Pemrosesan Dokumen
 
 Analisis clustering dapat membantu dalam memproses dokumen dengan beberapa cara. Dokumen dapat dikelompokkan berdasarkan kesamaan untuk menunjukkan dokumen mana yang paling mirip satu sama lain. Ini dapat didasarkan pada panjang dokumen, distribusi frekuensi kata, atau berbagai cara lain untuk mengukur karakteristik kunci tentang dokumen. Kasus penggunaan umum lainnya adalah menganalisis cluster bagian dokumen berdasarkan frekuensi kata kunci, panjang kalimat, atau distribusi istilah. Ini dapat membantu dalam melakukan ringkasan dokumen atau dalam memecah dokumen yang lebih besar menjadi dataset yang lebih kecil untuk analisis lebih lanjut.
+
+# Latihan
+
+Disini saya menggunakan model clustering untuk melihat bagaimana model mengelompokan data dan membandingkan dari kelompok data asli, disini saya menggunakan algoritma K-means untuk clustering.
+
+Hal yang pertama kita lakukan adalah mengimport library yang kita butuhkan
+
+```python
+import pandas as pd
+import numpy as np
+from sklearn.cluster import KMeans
+from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import silhouette_score
+```
+
+lalu mengimport dataset yang digunakan, disini saya menggunakan data pinguins yang bisa didapatkan di kaggle (<https://www.kaggle.com/datasets/youssefaboelwafa/clustering-penguins-species>)
+
+```python
+df = pd.read_csv('penguins.csv')
+df.info()
+```
+
+lakukan proses pembersihan data seperti, menghapus nilai null, duplikat dan outlier pada data. Setelah itu kita melakukan normalisasi data dimana membuat data kita mempunyai skala yang sama, Kenapa kita melakukan normalisasi data? karena menjaga keadilan antar fitur dalam perhitungan jarak. Tanpa normalisasi, hasil cluster bisa bias dan tidak representatif.
+
+```python
+# Normalisasi Min-Max untuk kolom numerik
+df_normalized = df.copy()
+for col_name in numeric_cols:
+    min_val = df_normalized[col_name].min()
+    max_val = df_normalized[col_name].max()
+    df_normalized[col_name] = (df_normalized[col_name] - min_val) / (max_val - min_val)
+
+df_normalized.head()
+```
+
+setelah kita melakukan pre-processing data, sekarang kita bisa menerapkan model clustering kita, tetapi sebelum itu kareka kita menggunakan algoritma K-means maka kita perlu menentukan jumlah K atau jumlah centroid agar model bagaimana membagi data ke dalam berapa kelompok. Disini saya menggunakan metode elbow method untuk menentukan jumlah K,
+
+![alt text](image.png)
+
+pada visualisasi di atas terlihat bahwa jumlah K optimal adalah 2, lalu untuk membuktikan dilakukan juga perhitungan Silhouette Score untuk K=2: 0.530 dimana tertinggi dari jumlah K yang lain.
+
+![alt text](image-1.png)
+
+disini kita bisa melihat bagaimana hasil pembagian kelompok pada algoritma K-means, dimana data terlihat terbagi 2 pada masing masing fitur. Hasil ini cocok dengan jumlah gender pada data awal kita yaitu MALE dan FEMALE. Artinya kedua kelompok ini memiliki perbedaan karekteristik berdasarkan data awal.
+
+Untuk lebih lengkapnya bisa dilihat pada <https://github.com/ivy799/Data-mining-Exercise>

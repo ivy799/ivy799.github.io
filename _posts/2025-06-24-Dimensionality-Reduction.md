@@ -135,7 +135,6 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 import matplotlib.pyplot as plt
-
 ```
 
 lalu mengimport dataset yang digunakan, disini saya menggunakan data pinguins yang bisa didapatkan di kaggle (<https://www.kaggle.com/datasets/youssefaboelwafa/clustering-penguins-species>)
