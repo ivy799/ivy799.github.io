@@ -199,3 +199,5 @@ pada visualisasi di atas terlihat bahwa jumlah K optimal adalah 2, lalu untuk me
 ![alt text](https://i.imgur.com/P9Rkoc4.png)
 
 disini kita bisa melihat bagaimana hasil pembagian kelompok pada algoritma K-means, dimana data terlihat terbagi 2 pada masing masing fitur. Hasil ini cocok dengan jumlah gender pada data awal kita yaitu MALE dan FEMALE. Artinya kedua kelompok ini memiliki perbedaan karekteristik berdasarkan data awal.
+
+Ini adalah notebook yang bisa kalian gunakan sebagai referensi <https://github.com/ivy799/Data-mining-Exercise>
