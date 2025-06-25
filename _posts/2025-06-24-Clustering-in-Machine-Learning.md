@@ -192,10 +192,10 @@ df_normalized.head()
 
 setelah kita melakukan pre-processing data, sekarang kita bisa menerapkan model clustering kita, tetapi sebelum itu kareka kita menggunakan algoritma K-means maka kita perlu menentukan jumlah K atau jumlah centroid agar model bagaimana membagi data ke dalam berapa kelompok. Disini saya menggunakan metode elbow method untuk menentukan jumlah K,
 
-<!-- ![alt text](image.png) -->
+![alt text](image.png)
 
 pada visualisasi di atas terlihat bahwa jumlah K optimal adalah 2, lalu untuk membuktikan dilakukan juga perhitungan Silhouette Score untuk K=2: 0.530 dimana tertinggi dari jumlah K yang lain.
 
-<!-- ![alt text](image-1.png) -->
+![alt text](image-1.png)
 
 disini kita bisa melihat bagaimana hasil pembagian kelompok pada algoritma K-means, dimana data terlihat terbagi 2 pada masing masing fitur. Hasil ini cocok dengan jumlah gender pada data awal kita yaitu MALE dan FEMALE. Artinya kedua kelompok ini memiliki perbedaan karekteristik berdasarkan data awal.
