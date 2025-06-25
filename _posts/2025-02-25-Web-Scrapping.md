@@ -13,19 +13,20 @@ Web scraping adalah teknik mengambil data dari sebuah situs secara otomatis meng
 
 Proses web scraping dimulai dengan mengirimkan permintaan (request) ke server web, dan server akan mengembalikan respons sesuai dengan permintaan kita. Namun, dalam proses web scraping terdapat etika yang perlu diketahui.  
 
-
-
 ### Etika dalam Web Scraping  
 
 #### 1. Respecting `robots.txt`  
+
 - Memahami tujuan dan aturan `robots.txt`  
 - Menghindari batasan yang ditetapkan oleh situs web  
 
 #### 2. Menangani Rate Limits  
+
 - Mencegah server overload  
 - Menerapkan delay dan backoff  
 
 #### 3. Privasi Data dan Hak Cipta  
+
 - Penggunaan data yang etis  
 - Menghindari masalah hukum  
 
@@ -67,7 +68,9 @@ Anda bisa melihat cara instalasi Python di:
 ```python
 pip install beautifulsoup4  
 ```
+
 atau
+
 ```python
 py -m pip install beautifulsoup4
 ```
@@ -75,15 +78,17 @@ py -m pip install beautifulsoup4
 dokumentasi lengkapnya bisa dilihat pada
 [Dokumentasi beautifulsoup4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)  
 
-
 ### Practice  
+
 Berikut adalah langkah langkah mengambil data menggunakan web scrapping
+
 1. Cari url website yang ingin diambil datanya
 2. Kirim Http request ke server web tersebut
 3. parse response ke data yang dibutuhkan
 4. simpan datanya
 
 #### langkah - 1  
+
 import library yang dibutuhkan
 
 ```python
@@ -95,31 +100,38 @@ import pandas as pd
 disini pandas digunakan untuk menyimpan data hasil scrapping
 
 #### langkah - 2  
+
 ambil url dari web tujuan dan simpan ke dalam variabel
+
 ```python
 import library yang dibutuhkan
 url = 'https://www.scrapethissite.com/pages/simple/'
 ```
 
-
 #### langkah - 3  
+
 buat object soup untuk mengambil data
+
 ```python
 soup = BeautifulSoup(requests.get(url).text,'html.parser')
 ```
+
 Pada parameter pertama kita memasukkan fungsi request yang akan mengembalikan response, dan parameter kedua berisi format response yang ingin dikembalikan dalam hal ini adalah html, kenapa html? karna dengan menggunakan beautifulSoup kita bisa mencari data dengan mudah menggunakan beberapa tools. format response ini bisa kita sesuaikan semaunya, tetapi dalam kasus kita karna kita menggunakan beautiful soup maka perlu format html
 
-
 #### langkah - 4  
-ambil data yang diinginkan dari response 
+
+ambil data yang diinginkan dari response
+
 ```python
 soup_1 = soup.find_all('div', class_='col-md-4 country')
 ```
+
 disini kita mengambil semua data div dengan class "col-md-4 country" dan menyimpannya dalam variabel, analoginya seperti mengambil sedikit soup(soup_1) dari soup(object soup) menggunakan sendok  
 
-
 #### Langkah - 5  
+
 menyimpan data dalam array/list
+
 ```python
 name_list = []
 capital_list = []
@@ -136,14 +148,15 @@ for i in soup_1:
     area = i.find('span', class_='country-area').text
     area_list.append(area)
 ```
+
 pada proses ini karna ini menggunakan fungsi find_all() maka dilakukan looping karna fungsi find_all() mengembalikan banyak nilai sedangkan jika kita menggunakan find(),fungsi ini hanya mengembalikan kemunculan pertama dari langkah sebelumnya.
 
 note : proses ini berbeda pada masing masing web, jadi sesuaikan kode berdasarkan data response kalian
 
-
-#### langkah - 6 
+#### langkah - 6
 
 petakan data dalam dataframe
+
 ```python
 df = pd.DataFrame({
     'Name': name_list,
@@ -153,10 +166,12 @@ df = pd.DataFrame({
 ```
 
 #### langkah - 7  
+
 simpan dataframe kedalam bentuk file csv
+
 ```python
 df.to_csv('scrap.csv', index=False) 
 ```
 
-kalian bisa melihat dokumentasi fullnya di 
-https://www.crummy.com/software/BeautifulSoup/bs4/doc/#
+kalian bisa melihat dokumentasi fullnya di
+<https://www.crummy.com/software/BeautifulSoup/bs4/doc/#>, dan ini beberapa contoh penerapan web scrapping di berbagai website yang bisa kalian akses secara gratis <https://github.com/ivy799/Web-Scrapping-Training>
