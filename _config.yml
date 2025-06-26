@@ -107,6 +107,12 @@ social_preview_image: # string, local or CORS resources
 # boolean type, the global switch for TOC in posts.
 toc: true
 
+# MathJax settings for mathematical equations
+math_engine: mathjax
+math_engine_opts:
+  preview: true
+  preview_as_tex: true
+
 comments:
   # Global switch for the post-comment system. Keeping it empty means disabled.
   provider: # [disqus | utterances | giscus]

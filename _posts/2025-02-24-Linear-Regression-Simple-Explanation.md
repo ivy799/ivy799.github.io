@@ -3,6 +3,7 @@ layout: post
 title: "Pengenalan Regresi Linear"
 date: 2025-02-24
 categories: MachineLearning Model
+math: true
 ---
 
 # Pengenalan Regresi Linear
