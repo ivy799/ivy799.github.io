@@ -76,6 +76,7 @@ Strategi testing diimplementasikan melalui serangkaian langkah sistematis yang d
 ## Klasifikasi dan Jenis-Jenis Testing
 
 ![image 1](https://cms-cdn.katalon.com/large_testing_pyramid_detailed_explanation_01793071ba.png)
+
 Testing dapat diklasifikasikan berdasarkan berbagai kriteria untuk memastikan semua aspek perangkat lunak ter-cover.
 
 ### 1. Berdasarkan Abstraksi (Level Testing)
