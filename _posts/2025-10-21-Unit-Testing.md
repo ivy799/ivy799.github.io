@@ -1,4 +1,3 @@
-```markdown
 ---
 layout: post
 title: "Pengantar Unit Testing: Fondasi Kode yang Andal"
@@ -33,9 +32,9 @@ Menerapkan unit testing secara disiplin sangat penting untuk memastikan keandala
 
 Untuk menjaga agar unit test tetap sederhana dan mudah dibaca, pendekatan populer yang digunakan adalah pola **"Arrange-Act-Assert" (AAA)**. Pola ini membagi setiap tes menjadi tiga bagian yang jelas:
 
-1.  **Arrange (Mengatur):** Menyiapkan semua kondisi awal dan data yang diperlukan untuk tes. Ini termasuk inisialisasi objek atau variabel.
-2.  **Act (Bertindak):** Menjalankan satu fungsi atau metode yang ingin diuji.
-3.  **Assert (Memastikan):** Memverifikasi atau mengecek bahwa hasil dari tindakan (Act) sesuai dengan apa yang diharapkan (*expectation*).
+1. **Arrange (Mengatur):** Menyiapkan semua kondisi awal dan data yang diperlukan untuk tes. Ini termasuk inisialisasi objek atau variabel.
+2. **Act (Bertindak):** Menjalankan satu fungsi atau metode yang ingin diuji.
+3. **Assert (Memastikan):** Memverifikasi atau mengecek bahwa hasil dari tindakan (Act) sesuai dengan apa yang diharapkan (*expectation*).
 
 ---
 
@@ -54,24 +53,30 @@ Untuk mempermudah penulisan dan eksekusi tes, developer menggunakan *framework t
 Selain pola AAA dan framework, ada beberapa konsep penting lain dalam unit testing.
 
 ### Karakteristik Kode yang *Testable*
+
 Agar unit testing mudah dilakukan, kode yang ditulis sebaiknya memiliki karakteristik berikut:
+
 * **Low-coupling:** Ketergantungan antar fungsi atau kelas dibuat seminimal mungkin, sehingga bisa diuji secara independen.
 * **Pure Function:** Fungsi yang ideal adalah fungsi murni (*pure*)—fungsi yang tidak menghasilkan efek samping (*side effects*) dan hanya bergantung pada input parameternya.
 * **Pemisahan *Logic* dan *Presentation*:** Memisahkan logika bisnis dari kode yang mengatur antarmuka pengguna (UI) memudahkan pengujian logika secara terisolasi.
 * **Sederhana:** Kode dengan kompleksitas rendah (*low cyclomatic complexity*) lebih mudah dipahami dan memiliki lebih sedikit jalur eksekusi yang perlu diuji.
 
 ### Test Driven Development (TDD)
+
 TDD adalah pendekatan di mana developer menulis *test* terlebih dahulu, *sebelum* menulis kode implementasi fungsionalitasnya. Alurnya adalah:
-1.  **Red:** Tulis tes untuk fungsionalitas yang belum ada. Jalankan tes (dan lihat tes itu *gagal*).
-2.  **Green:** Tulis kode implementasi paling sederhana agar tes tersebut *lulus*.
-3.  **Refactor:** Bersihkan kode implementasi tanpa mengubah perilakunya (tes harus tetap lulus).
+
+1. **Red:** Tulis tes untuk fungsionalitas yang belum ada. Jalankan tes (dan lihat tes itu *gagal*).
+2. **Green:** Tulis kode implementasi paling sederhana agar tes tersebut *lulus*.
+3. **Refactor:** Bersihkan kode implementasi tanpa mengubah perilakunya (tes harus tetap lulus).
 
 Pendekatan ini membantu memastikan cakupan tes (*test coverage*) yang tinggi dan memperjelas persyaratan fungsionalitas sejak awal.
 
 ### Test Fixtures (Setup dan Cleanup)
+
 Terkadang, banyak tes memerlukan persiapan yang sama (misal, terhubung ke database tiruan) atau pembersihan setelahnya. **Test Fixture** merepresentasikan persiapan (setup) dan pembersihan (cleanup) ini.
 
 Banyak framework menyediakan fungsi khusus untuk ini, contohnya di library `unittest` Python:
+
 * **`setUp()`:** Metode yang akan dijalankan *sebelum* setiap metode tes dieksekusi.
 * **`tearDown()`:** Metode yang akan dijalankan *setelah* setiap metode tes selesai, bahkan jika terjadi error.
 
@@ -82,7 +87,7 @@ Banyak framework menyediakan fungsi khusus untuk ini, contohnya di library `unit
 Dalam praktiknya, unit testing adalah file kode yang mengimpor dan menguji file kode lain. Contohnya, untuk menguji kelas `ShoppingCart` dengan **Pytest (Python)**, file tes akan mengimpor `ShoppingCart` dan memiliki fungsi seperti `test_add` (menguji penambahan item) dan `test_add_overflow` (memastikan aplikasi error jika keranjang penuh). Demikian pula, untuk menguji kelas `BankAccount` dengan **JUnit 5 (Java)**, file tes akan memiliki metode seperti `testDeposit` (memastikan saldo bertambah) dan `testWithdrawInsufficientFunds` (memastikan aplikasi melempar *exception* jika saldo tidak cukup).
 
 ## Sumber
+
 * Presentasi "Pengantar Unit Testing" oleh Kelompok 5
 * Ismail Abdulmalik, Hasan. (2024). "Unit Testing: Apa Itu dan Mengapa Kita Memerlukannya?". *Dicoding*.
 * "Pengantar Unit Testing". *Codepolitan (Rangkuman)*.
-```
